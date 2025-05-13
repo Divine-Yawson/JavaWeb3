@@ -10,17 +10,17 @@ pipeline {
         // clone Repo
         stage('clone') {
             steps {
-                git branch: 'master'
+                git branch: 'master',
                         url: 'https://github.com/Divine-Yawson/JavaWeb3.git'
             }
         }
-    }
+    
 
-    // Build Docker Images
-    stage('Docker Build') {
-        steps {
-            script {
-                sh 'docker build -t ${DOCKER_IMAGE}:latest .'
+        // Build Docker Images
+        stage('Docker Build') {
+            steps {
+                script {
+                    sh 'docker build -t ${DOCKER_IMAGE}:latest .'
             }
         }   
     }
@@ -54,7 +54,8 @@ pipeline {
             succes {
                 echo "Pipeline succeeded! App should be running on port 8000"
             }
-            failuer {
+            failure {
                 echo " Pipeline failed! Check logs for errors."
             }
         }
+    }
