@@ -8,7 +8,7 @@ COPY . .
 RUN mvn clean package
 
 # stage 2: Deploy WAR file to tomcat
-FROM tomcat:9.0.104-jdk8-tumerin-jammy
+FROM tomcat:9.0.104-jdk8-temurin-jammy
 
 RUN rm -rf /usr/local/tomcat/webapps/*
 
